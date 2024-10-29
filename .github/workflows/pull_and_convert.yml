@@ -9,23 +9,23 @@ jobs:
   pull-and-convert:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
-          repository: 'zacred0rryn/srs-custom'
+          repository: ${{ github.repository }}
           persist-credentials: false
           fetch-depth: 0
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           repository: 'VirgilClyne/GetSomeFries'
           path: 'httpdns'
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           repository: 'zacred0rryn/anti-ip-attribution'
           path: 'ip-attr'
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           repository: 'zacred0rryn/srs-custom'
           ref: 'yaml2json'

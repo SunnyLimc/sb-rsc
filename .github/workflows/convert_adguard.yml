@@ -9,19 +9,19 @@ jobs:
   pull-and-convert:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
-          repository: 'zacred0rryn/srs-custom'
+          repository: ${{ github.repository }}
           persist-credentials: false
           fetch-depth: 0
 
       - name: Download and Set Up sing-box
         run: |
           mkdir -p tmp/convert
-          wget -O sing-box.tar.gz https://github.com/SagerNet/sing-box/releases/download/v1.10.0-alpha.25/sing-box-1.10.0-alpha.25-linux-amd64.tar.gz
+          wget -O sing-box.tar.gz https://github.com/SagerNet/sing-box/releases/download/v1.10.1/sing-box-1.10.1-linux-amd64.tar.gz
           tar zxvf sing-box.tar.gz && rm sing-box.tar.gz
-          cp sing-box-1.10.0-alpha.25-linux-amd64/sing-box tmp/convert/
-          rm -r sing-box-1.10.0-alpha.25-linux-amd64
+          cp sing-box-1.10.1-linux-amd64/sing-box tmp/convert/
+          rm -r sing-box-1.10.1-linux-amd64
 
       - name: Pull AdGuard DNS Filter Lists
         run: |
